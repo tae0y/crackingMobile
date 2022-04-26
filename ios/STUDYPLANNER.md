@@ -58,7 +58,6 @@
   - [[Xcode] iOS 시뮬레이터(iOS Simulator) 실행 방법 | 디바이스 변경 방법 (tistory.com)](https://envia.tistory.com/161)
     - 지원 되는 기능: 회전, 멀티터치, 흔들기, GPS(수동입력)
     - 지원 안 되는 기능: 전화착신시 동작, 카메라, 가속도, GPS(실제)
-
 - 애플 개발자 프로그램 옵션 - [[멤버십 선택하기 - 지원 - Apple Developer]](https://developer.apple.com/kr/support/compare-memberships/)
 
 
