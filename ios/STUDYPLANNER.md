@@ -1,11 +1,11 @@
-# STUDY PLAN
+# STUDYPLANNER
 
 > 모바일 플랫폼 기술학습
 
 - 4-5월: 개인학습, 내용공유
-  - 4월은 코드랩 따라해보고, 5월은 인강 + 필요한 부분을 그때그때 학습
-  - swift로 박스오피스앱 만들기
-  - flutter로 전환해볼 부분 찾고 적용
+  - 헬로월드 코드랩 따라해보고 책 구매
+  - do it swift 책 따라서 학습
+  - 5월 안에 박스오피스 앱 만들어보기
 - 6월: 공통프로젝트
 - 7-11월: 개인프로젝트
 
@@ -50,7 +50,7 @@
 
 - **개인맥북, xcode, ios 시뮬레이터**
   - 아이폰 당근마켓에서 구하는중
-- **ios에서 디바이스 테스트하기, 개발자 계정 만들면 바로 가능 **
+- **ios에서 디바이스 테스트하기, 개발자 계정 만들면 바로 가능**
   - [iOS 디바이스 테스트 - RN(react native)로 개발한 프로젝트를 iOS 디바이스에서 테스트해 봅시다. (posstree.com)](https://dev-yakuza.posstree.com/ko/react-native/ios-test-on-device/)
     - 디바이스 테스트는 개발자 등록 안해도됨, 계정만 있어도됨
   - [iOS TestFlight - iOS의 TestFlight를 이용하여 개발한 어플을 테스터를 통해 테스트해 보자. (posstree.com)](https://dev-yakuza.posstree.com/ko/react-native/ios-testflight/)
@@ -73,8 +73,5 @@
     - swift [Swift - Apple Developer](https://developer.apple.com/kr/swift/)
     - swiftUI [SwiftUI Tutorials | Apple Developer Documentation](https://developer.apple.com/tutorials/swiftui)
   - flutter [NAVER Tech Talk: Flutter meetup](https://d2.naver.com/news/9527890)
-- **인프런**
-  - swift 
-  - flutter 
 - **책**
-  - swift 
+  - swift [(2022-03)Do it! 스위프트로 아이폰 앱 만들기 입문 - 개정 6판](https://www.aladin.co.kr/m/mproduct.aspx?ItemId=289731712), 전자책 18000
