@@ -1,4 +1,4 @@
-# doit! ios swift 기본개념
+# doit! ios swift - 기본개념
 
 총 19장까지 있고, 5월까지 12장까지 공부하는 것이 목표. 다른 내용은 필요할 때마다 학습. 여기에는 책 읽으면서 기본적인 내용들 요약/정리.
 
@@ -93,7 +93,7 @@ print(converted) //Optional(123)
 
 ​      
 
-## 1- 5장 복습
+## 1- 5장 복습, 6장
 
 - **네비게이션 view의 생명주기** [iOS ) View의 생명주기2(Life-Cycle) / navigation controller (tistory.com)](https://zeddios.tistory.com/44?category=682195) : 네비게이션 view는 root view를 가지며, 새로 열린 view가 그 위에 스택처럼 쌓이는 구조이다. 뒤로가기를 누르면 맨 위에 있는 view가 pop되어 메모리에서 삭제되고, 전에 메모리에 로드해뒀던 view를 다시 보여준다.
 
@@ -219,8 +219,21 @@ func someFunction(#parameterName: Int) { parameterName }
   - [ ] 접근제한자
   - [ ] 클로저
   
+- **팀장님 코멘트**
+  - 푸시
+    - 구글/애플 push서버, push토큰을 알고 있으면 푸시 다 보낼 수 있음
+    - 카카오 자체서비스, push서비스를 직접구현
+    - 포그라운드/백그라운드 push
+    - 구글 정책에 따라 백그라운드 죽일 수도 있음
+    - FCM (Firebase Cloud Messaging), 푸시서버 사용할 수도 있음
+  - 서버가 필요하면 Firebase를 추천
+  - 혹은 Linux, 미들웨어, mariaDB로 직접 해봐도 좋을거 같다
+  - 안드로이드에서 동적으로 액티비티를 생성할 수 있는가
+  - https://flutter-ko.dev/docs/get-started/flutter-for/android-devs
 
-​    
+  
+
+  
 
 ## swift 좀더 깊게 파보기 :nerd_face::thumbsup:
 
@@ -594,15 +607,19 @@ name = "tae0"
 
 
 
+## 7, 8, 9장
 
+- indicater view
 
+- Outlet, Action, Outlet Collection
+- webKit
+  - URLRequest
+- info.plist
+  - App Transport Security Settings
+  - Allow Arbitary Loads
 
-
-
-
-
-
-
+- Bundle.main.path
+- String.hasPrefix
 
 
 
