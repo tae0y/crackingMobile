@@ -607,25 +607,74 @@ name = "tae0"
 
 
 
-## 7, 8, 9장
+## 7, 8장
 
 - indicater view
-
 - Outlet, Action, Outlet Collection
 - webKit
   - URLRequest
 - info.plist
   - App Transport Security Settings
   - Allow Arbitary Loads
-
 - Bundle.main.path
 - String.hasPrefix
 
+- Segment Control
+- kCLLocationAccuracyBest
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 9, 10, 11, 12장
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 박스오피스앱 만들기
+
+- UITable, Custom Cell, Http, 화면전환, autolayout
+
+
+
+## 랜덤메뉴앱 만들기
+
+- 회사근처/내 위치 기반으로 랜덤메뉴 추천
+- 내 냉장고 안에 있는 재료 기반으로 랜덤메뉴
 
 
 
