@@ -71,4 +71,4 @@
     - swiftUI [SwiftUI Tutorials | Apple Developer Documentation](https://developer.apple.com/tutorials/swiftui)
   - flutter [NAVER Tech Talk: Flutter meetup](https://d2.naver.com/news/9527890)
 - **책**
-  - swift [(2022-03)Do it! 스위프트로 아이폰 앱 만들기 입문 - 개정 6판](https://www.aladin.co.kr/m/mproduct.aspx?ItemId=289731712), 전자책 18000
+  - swift [(2022-03)Do it! 스위프트로 아이폰 앱 만들기 입문 - 개정 6판](https://www.aladin.co.kr/m/mproduct.aspx?ItemId=289731712), 전자책 18000STUDYPLANNER.md
