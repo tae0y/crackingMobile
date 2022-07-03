@@ -664,6 +664,12 @@ name = "tae0"
 
 
 
+
+
+
+
+
+
 ## 메모리에 남지 않는 문자열 만들기
 ![](https://velog.velcdn.com/images/eddy_song/post/e09e9b98-4913-47ed-848a-a455f89bebda/image.gif)
 - [(발표영상)토스ㅣSLASH 21 - 메모리에 남지 않는 문자열](https://toss.im/slash-21/sessions/3-6)
@@ -679,22 +685,71 @@ name = "tae0"
   - 입력한 값을 별도 객체로 옮겨놓고, 스택영역에는 \-이나 \*같은 문자열로 대체한다
   - 다시 해당 객체는 deinit 필드에서 메모리해제될때 임의의 값으로 덮어씌운다
 
-## :runner: 공통프로젝트
+## :man_dancing:공통프로젝트
 
-- **[랜덤메뉴추천앱](./공통프로젝트.md)**
+- **랜덤메뉴추천앱**
   - 네이버 search API를 활용해 지역/키워드별 플레이스 정보 받아오기
   - 음식점만 추리고, 버튼 누르면 랜덤하에 띄워주기 (상단: 앱바 // 중간: 지도에 마커 // 하단: 카테고리, 설명, 주소, 전화번호, 세부링크) 
   - 다음목표: 백그라운드에서 정보 업데이트, DB 등에 저장, 화면 예쁘게 만들기
 
-## 토이프로젝트 주제모음
+### 레이아웃
+
+
+
+
+
+
+
+
+
+
+
+- **레퍼런스**
+  - [iOS) Auto Layout 정복하기 (1/5) - Auto Layout이란? (tistory.com)](https://babbab2.tistory.com/133) :triangular_flag_on_post:
+  - [autolayout - multiplier 정리 (tistory.com)](https://qteveryday.tistory.com/136) :triangular_flag_on_post:
+  - 안드로이드와 ios의 자동레이아웃 비교 : [ConstraintLayout vs auto layout (bignerdranch.com)](https://bignerdranch.com/blog/constraintlayout-vs-auto-layout-how-do-they-compare/)
+  - 자동레이아웃 계산 방정식 [solving constraint system — cassowary 0.5.2 문서 (cassowary.readthedocs.io)](https://cassowary.readthedocs.io/en/latest/topics/theory.html)
+
+  
+
+<!-- AutoLayout을 쓰면 UIStackView
+
+Constraint를 쓰면 NSLayoutConstraint
+
+VStack, HStack과 같이 레이아웃에 대해서만 책임을 지는 Container컴포넌트들과, Text나 Button 과 같이 실제로 컨텐츠를 표현하는 Child컴포넌트
+
+SwiftUI와 거의 똑같은 Syntax로 코드를 짜는 것이 가능했고 그 결과 아주 쉽게 Figma에서 보여지는 위계를 코드로 그대로 표현 할 수 있었습니다.
+
+layout driven ui https://developer.apple.com/videos/play/wwdc2018/233?time=525 / swiftUI는 ios13 이상부터만 쓸 수 있음 / @state @combine / RxSwift 
+
+- UIView autolayout, constraint, anchor
+- adaptive layout
+- gestureRecognizer, scrollview/button touch
+
+-->
+
+
+
+
+
+
+
+
+
+## 개인프로젝트 주제모음
 
 - **박스오피스앱**
+  - 이달의 박스오피스
+  - 무한스크롤 / 빠른이미지로딩, 로딩안될때는 스켈레톤
 - **냉장고 관리앱**
-  - 바코드인식해서 물품등록, 유통기한도 입력 / BM: 성별,나이,가구구성과 상품 구매시기,량 데이터 판매
-  - 유통기한 얼마 안남았을때 알려주기 / BM: 해당상품 재구매 광고
-  - 남은재료로 할 수 있는 음식 알려주기 / BM: 광고 또는 열람권 구매시 레시피 해금, 조리도구/재료구매 광고
-  - 등록한 재료정보 등은 사용자단말에만, '동기화' 버튼을 누르면 사용자 구글드라이브에 백업
-  - 우리는 사용자데이터 관리 부담없이 광고서버만 관리하면됨
+  - 바코드인식해서 물품등록, 유통기한도 입력
+  - 유통기한 얼마 안남았을때 알려주기
+  - 남은재료로 할 수 있는 음식 알려주기
+- **TIL레포 관리앱**
+  - 모바일 마크다운 에디터
+  - 페이지 단위로 랜덤하게 띄워주기
+  - 기억나면 왼쪽, 기억안나면 오른쪽 스와이프
+
 
 ## 도전과제 주제모음
 
