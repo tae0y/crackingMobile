@@ -685,57 +685,102 @@ name = "tae0"
   - 입력한 값을 별도 객체로 옮겨놓고, 스택영역에는 \-이나 \*같은 문자열로 대체한다
   - 다시 해당 객체는 deinit 필드에서 메모리해제될때 임의의 값으로 덮어씌운다
 
-## :man_dancing:공통프로젝트
+## 공통프로젝트 - 랜덤플레이트
 
 - **랜덤메뉴추천앱**
   - 네이버 search API를 활용해 지역/키워드별 플레이스 정보 받아오기
   - 음식점만 추리고, 버튼 누르면 랜덤하에 띄워주기 (상단: 앱바 // 중간: 지도에 마커 // 하단: 카테고리, 설명, 주소, 전화번호, 세부링크) 
   - 다음목표: 백그라운드에서 정보 업데이트, DB 등에 저장, 화면 예쁘게 만들기
 
-### 레이아웃
+### 동적 레이아웃(sautolayout)
 
-
-
-
-
-
-
-
-
-
-
-- **레퍼런스**
-  - [iOS) Auto Layout 정복하기 (1/5) - Auto Layout이란? (tistory.com)](https://babbab2.tistory.com/133) :triangular_flag_on_post:
-  - [autolayout - multiplier 정리 (tistory.com)](https://qteveryday.tistory.com/136) :triangular_flag_on_post:
-  - 안드로이드와 ios의 자동레이아웃 비교 : [ConstraintLayout vs auto layout (bignerdranch.com)](https://bignerdranch.com/blog/constraintlayout-vs-auto-layout-how-do-they-compare/)
-  - 자동레이아웃 계산 방정식 [solving constraint system — cassowary 0.5.2 문서 (cassowary.readthedocs.io)](https://cassowary.readthedocs.io/en/latest/topics/theory.html)
-
+- **constraint** : 제약조건 / ***anchor**는 각 constraint항목의 기준선!*
   
+  - autolayout은 위치와 크기를 상대적으로, 동적으로 지정한다. 
+  - ![img](https://www.zehye.kr/assets/post-img/swift/30.png)
+  - left / leading : 왼쪽 / 텍스트가 시작하는 위치로 이를테면 아랍어는 오른쪽임. WWDC 2015에서 왼쪽, 오른쪽을 특정해야 하는 상황이 아니라면 leading / trailing을 사용할 것을 권고함.
+  - 이를테면 뷰 제약조건으로 leading / trailing을 30으로 주고 width를 비워두면, 어떤 기기에서도 양 사이드는 30을 비워두고 화면을 꽉 채울 수 있음.
+  - 안드로이드 / iOS 비교
+  
+    | Android  | iOS      |
+    | -------- | -------- |
+    | top      | top      |
+    | bottom   | bottom   |
+    | left     | left     |
+    | right    | right    |
+    | start    | leading  |
+    | end      | trailing |
+    |          | centerX  |
+    |          | centerY  |
+    | baseline | baseline |
+  
+- **safe area** : 최상위 레이아웃 가이드
+  - 노치가 없을 때 : 위, 아래 마진만 고려하면 됨, top / bottom layout guide
+  - 노치가 생기고서 : 위, 아래, 양옆 마진을 모두 고려해야함
+  - ![img](https://blog.kakaocdn.net/dn/bAPeEh/btq3y7iUJVD/kvDkiQlEfWePu169RjCm2k/img.png)
 
-<!-- AutoLayout을 쓰면 UIStackView
+- **Intrinsic Content Size**
+  - 콘텐츠에 따라 자동으로 뷰 width, height가 지정된다. 그래서 이를테면 leading은 constraint를 걸고 width와 trailing은 비워둬도 빌드가 된다.
+  - 관련 뷰 종류
+    | 구분                                         | **Intrinsic Contet Size Width** | **Intrinsic Contet Size Height** |
+    | -------------------------------------------- | ------------------------------- | -------------------------------- |
+    | **UIView**                                   | X                               | X                                |
+    | **UISlider**                                 | O                               | X                                |
+    | **UILabel, UIButton, UISwitch, UITextField** | O                               | O                                |
+    | **TextView, ImageView**                      | Content에 따라 변화함           |                                  |
 
-Constraint를 쓰면 NSLayoutConstraint
+- **priority** : 제약조건 우선순위
+  - 예를들어 왼쪽뷰의 trailing이 오른쪽뷰의 leading인 경우, 어느쪽이 "늘어날지" 판단해줘야함
+    ![img](https://blog.kakaocdn.net/dn/1WMS9/btq3U7wo2dV/Nm9M1H56cJDW6KV94qHw70/img.png)
+  -  hugging priority : 높을수록 잘 줄어듬, 허깅, 수그러듦, 안쪽으로 잘 말림
+  -  compression resistance priority : 높을수록 안 줄어듬, 저항함, 안 말림
 
-VStack, HStack과 같이 레이아웃에 대해서만 책임을 지는 Container컴포넌트들과, Text나 Button 과 같이 실제로 컨텐츠를 표현하는 Child컴포넌트
+- **stackview** : 안드로이드의 ListView와 같음
+  
+  - constraint : autolayout을 위한 제약조건
+  - spacing : 뷰끼리 간격
+  - alignment : horizontal / vertical 방향/정렬
+    |          | **Fill**                                                     | **Top**                                                      | **Center**                                                   | **Bottom**                                                   |
+    | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+    | **특징** | 사이즈 만큼 뷰들이 채워짐                                    | 위쪽으로 정렬                                                | 가운데 정렬                                                  | 밑쪽으로 정렬                                                |
+    | **비교** | ![img](https://blog.kakaocdn.net/dn/pTSLa/btrvaujJAhe/nP424LKbgkHxPOzg4mreWk/img.png) | ![img](https://blog.kakaocdn.net/dn/lIjkR/btrvbfGDpmx/0xqWkZaPetW7VLpiIBJcKK/img.png) | ![img](https://blog.kakaocdn.net/dn/cMfBMJ/btru8JaEtmd/C6zQj4tMnS80csSyDI8BPk/img.png) | ![img](https://blog.kakaocdn.net/dn/KS27X/btrvcGEZ9au/Rvu6TGGpoJ0wDNukJjdzIk/img.png) |
+  
+    |          | Fill                                                         | **Leading**                                                  | **Center**                                                   | **Trailing**                                                 |
+    | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+    | **특징** | 사이즈 만큼 뷰들이 채워짐                                    | 왼쪽으로 정렬                                                | 가운데 정렬                                                  | 오른쪽으로 정렬                                              |
+    | **비교** | ![img](https://blog.kakaocdn.net/dn/Xilvm/btru5cxGes6/DuwzfUEwqwFdaHXufAuDiK/img.png) | ![img](https://blog.kakaocdn.net/dn/8J8dW/btrvbgNkvVK/ZYbZjJTMJGFemg29gAKd4k/img.png) | ![img](https://blog.kakaocdn.net/dn/cTBpGm/btrvbffADIM/yEt7vPvXiLyDdEADvWHtGK/img.png) | ![img](https://blog.kakaocdn.net/dn/51EYH/btru9PJtzQo/OEKVuyOTfkAbKljegLh9SK/img.png) |
+  - distribution
+  
+    |                    | 특징                                                         | 비교                                                         |
+    | ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+    | Fill               | stackview 크기에 맞춰 뷰들을 채우고, priority는 사용자가 설정해주어야 함 | -                                                            |
+    | Fill Equally       | 모든 뷰의 크기를 같게 맞춰줌, spacing은 사용자 설정 그대로   | ![img](https://blog.kakaocdn.net/dn/pn0nE/btrvbiRZb6O/twLAxDtJFQd8QWGS0RsVv1/img.png) |
+    | Equal Spacing      | 모든 뷰의 간격이 동일함, 설정한 spacing 이상으로 뷰간 간격을 똑같이 맞춰줌 | ![img](https://blog.kakaocdn.net/dn/YkBTE/btrvcHxaXF2/luzqB8S7IoTkmg2M2K0yeK/img.png) |
+    | Equal Centering    | 뷰 가운데를 기준으로 등간격으로 맞춰줌                       | ![img](https://blog.kakaocdn.net/dn/F0ks6/btrvhOaYBQn/tQ4L9tNz1HUFwd6HccMXik/img.png) |
+    | Fill Propotionally | 뷰 크기가 크면 여백이 커지고 뷰 크기가 작으면 여백이 작아짐, spacing은 사용자 설정 그대로 | ![img](https://blog.kakaocdn.net/dn/Uyszx/btrvbiEpaK3/XQEcdBX6Ly7tgdj93VjUk0/img.png) |
+  
+- **코드로 화면그리기**  
+  - 뷰를 생성
+  - 뷰를 추가 addSubView / addArrangedSubView [ios - addArrangedSubview vs addSubview - Stack Overflow](https://stackoverflow.com/questions/55221703/addarrangedsubview-vs-addsubview)
+    - addSubView 
+    - addArrangedSubView : `.axis` `.alignment` `.distribution` `.spacing` 등으로 subview를 조정해준다.
+  
+  - `.translatesAutoResizingMaskIntoConstraints = false`
+    - true면 frame을 따르고
+    - false면 autolayout을 따름
+  - `.topAnchor.constraint(equalTo: , constraint).isActive = true`
+    - 참고로 trailingAnchor와 bottomAnchor에 한해서 constraint를 음수로 주어야한다.
+    - `NSLayoutConstraint.activate` 구문을 사용해서 []로 constraints를 나열해 한번에 활성화해줄 수 있다.
 
-SwiftUI와 거의 똑같은 Syntax로 코드를 짜는 것이 가능했고 그 결과 아주 쉽게 Figma에서 보여지는 위계를 코드로 그대로 표현 할 수 있었습니다.
-
-layout driven ui https://developer.apple.com/videos/play/wwdc2018/233?time=525 / swiftUI는 ios13 이상부터만 쓸 수 있음 / @state @combine / RxSwift 
-
-- UIView autolayout, constraint, anchor
-- adaptive layout
-- gestureRecognizer, scrollview/button touch
-
--->
-
-
-
-
-
-
-
-
-
+- **참고한자료**
+  - [iOS) Auto Layout 정복하기 (1/5) - Auto Layout이란? (tistory.com)](https://babbab2.tistory.com/133) 
+  - [autolayout - multiplier 정리 (tistory.com)](https://qteveryday.tistory.com/136) 
+  - 안드로이드와 ios의 자동레이아웃 비교 : [ConstraintLayout vs auto layout (bignerdranch.com)](https://bignerdranch.com/blog/constraintlayout-vs-auto-layout-how-do-they-compare/)
+  - layout driven ui https://developer.apple.com/videos/play/wwdc2018/233?time=525 / swiftUI는 ios13 이상부터만 쓸 수 있음 / @state @combine / RxSwift 
+- **목표**
+  - [x] ~~UIView autolayout, constraint, anchor, addArrangedSubview, adaptive layout~~
+  - [ ] gestureRecognizer, scrollview/button touch
+  
 ## 개인프로젝트 주제모음
 
 - **박스오피스앱**
