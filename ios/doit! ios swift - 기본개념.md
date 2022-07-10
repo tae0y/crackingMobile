@@ -764,23 +764,27 @@ name = "tae0"
   - 뷰를 추가 addSubView / addArrangedSubView [ios - addArrangedSubview vs addSubview - Stack Overflow](https://stackoverflow.com/questions/55221703/addarrangedsubview-vs-addsubview)
     - addSubView 
     - addArrangedSubView : `.axis` `.alignment` `.distribution` `.spacing` 등으로 subview를 조정해준다.
-  
   - `.translatesAutoResizingMaskIntoConstraints = false`
     - true면 frame을 따르고
     - false면 autolayout을 따름
   - `.topAnchor.constraint(equalTo: , constraint).isActive = true`
     - 참고로 trailingAnchor와 bottomAnchor에 한해서 constraint를 음수로 주어야한다.
-    - `NSLayoutConstraint.activate` 구문을 사용해서 []로 constraints를 나열해 한번에 활성화해줄 수 있다.
+    - `NSLayoutConstraint.activate` 구문을 사용해서 `[]`로 constraints를 나열해 한번에 활성화해줄 수 있다.
+
 
 - **참고한자료**
-  - [iOS) Auto Layout 정복하기 (1/5) - Auto Layout이란? (tistory.com)](https://babbab2.tistory.com/133) 
-  - [autolayout - multiplier 정리 (tistory.com)](https://qteveryday.tistory.com/136) 
-  - 안드로이드와 ios의 자동레이아웃 비교 : [ConstraintLayout vs auto layout (bignerdranch.com)](https://bignerdranch.com/blog/constraintlayout-vs-auto-layout-how-do-they-compare/)
-  - layout driven ui https://developer.apple.com/videos/play/wwdc2018/233?time=525 / swiftUI는 ios13 이상부터만 쓸 수 있음 / @state @combine / RxSwift 
+  - ['iOS/AutoLayout' 카테고리의 글 목록 (tistory.com)](https://babbab2.tistory.com/category/iOS/AutoLayout)
+  - ['아이폰 개발/ios 디자인' 카테고리의 글 목록 (tistory.com)](https://qteveryday.tistory.com/category/아이폰 개발/ios 디자인)
+  - [ConstraintLayout vs auto layout (bignerdranch.com)](https://bignerdranch.com/blog/constraintlayout-vs-auto-layout-how-do-they-compare/)
+  - layout driven ui https://developer.apple.com/videos/play/wwdc2018/233?time=525 / swiftUI는 ios13 이상부터만 쓸 수 있음 / `@state` `@combine` / RxSwift 
 - **목표**
   - [x] ~~UIView autolayout, constraint, anchor, addArrangedSubview, adaptive layout~~
   - [ ] gestureRecognizer, scrollview/button touch
   
+  
+  
+
+
 ## 개인프로젝트 주제모음
 
 - **박스오피스앱**
@@ -794,6 +798,10 @@ name = "tae0"
   - 모바일 마크다운 에디터
   - 페이지 단위로 랜덤하게 띄워주기
   - 기억나면 왼쪽, 기억안나면 오른쪽 스와이프
+- **동선 짜주는 앱**
+  - 출발지와 목적지, 경유지를 입력하면 어떤 동선으로 가야할지 알려줌
+  - 어떤 지역을 선택하면 해당 지역에서 추천맛집/명소 동선을 짜줌
+  
 
 
 ## 도전과제 주제모음
