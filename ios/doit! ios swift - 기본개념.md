@@ -628,9 +628,15 @@ name = "tae0"
 ## 9, 10, 11, 12장
 
 - 뷰 컨트롤러 기반
-  - 페이지 컨트롤
-  - 탭바 컨트롤
-  - 내비게이션 컨트롤
+
+  - 페이지 컨트롤 : 페이지가 바뀔때 뷰를 삭제/생성
+  
+  - 탭바 컨트롤러 : 화면 전체선택 > editor > embed in
+    - Segue
+  - 내비게이션바 컨트롤러 : 화면 전체선택 > editor > embed in
+    - show
+    - pop
+    - Segue
   - 테이블뷰 컨트롤
 
 
@@ -653,7 +659,9 @@ name = "tae0"
 
 
 
+[View Controllers - 사과 (gitbook.io)](https://melod-it.gitbook.io/sagwa/app-frameworks/uikit/view-controllers)
 
+[[iOS] 레이아웃과 인터페이스 몇 가지 정리 (velog.io)](https://velog.io/@sangjin98/iOS-레이아웃과-인터페이스-몇-가지-정리)
 
 
 
