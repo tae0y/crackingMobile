@@ -627,18 +627,23 @@ name = "tae0"
 
 ## 9, 10, 11, 12장
 
-- 뷰 컨트롤러 기반
-
+- **뷰 컨트롤러 기반**
   - 페이지 컨트롤 : 페이지가 바뀔때 뷰를 삭제/생성
-  
   - 탭바 컨트롤러 : 화면 전체선택 > editor > embed in
     - Segue
   - 내비게이션바 컨트롤러 : 화면 전체선택 > editor > embed in
     - show
     - pop
     - Segue
+    - main > sub로 데이터 전달하기, sub > main으로 데이터 전달하기, delegate
   - 테이블뷰 컨트롤
 
+- **세그웨이 옵션**
+  - show : swift 2.X의 push와 유사, 새로운 뷰 컨트롤러가 스택에 푸시하면서 활성화된다, 이전 화면으로 돌아갈 때는 새로운 뷰 컨트롤러가 팝되면서 밑에 있던 뷰 컨트롤러가 활성화된다.
+  - show detail : show와 비슷하지만 push가 아니라 replace된다. 현재 뷰 컨트롤러 스택의 최상단 뷰를 교체한다.
+  - present modally : 새로운 뷰 컨트롤러를 보여 주는 스타일과 화면 전환 스타일을 결정하여 뷰를 모달 형태로 보여준다.
+  - present as popover : 현재 보이는 뷰 컨트롤러 위에 앵커를 가진 팝업 형태로 콘텐츠 뷰를 표시한다.
+  - custom : 개발자가 임의로 지정한 동작을 수행한다.
 
 
 
@@ -659,9 +664,6 @@ name = "tae0"
 
 
 
-[View Controllers - 사과 (gitbook.io)](https://melod-it.gitbook.io/sagwa/app-frameworks/uikit/view-controllers)
-
-[[iOS] 레이아웃과 인터페이스 몇 가지 정리 (velog.io)](https://velog.io/@sangjin98/iOS-레이아웃과-인터페이스-몇-가지-정리)
 
 
 
