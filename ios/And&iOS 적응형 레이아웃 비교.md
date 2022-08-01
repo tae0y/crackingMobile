@@ -137,8 +137,8 @@
 | Top, Bottom       | Vertical             | NSLayoutYAxisAnchor |
 | Leading, Trailing | Horizontal (1)       | NSLayoutXAxisAnchor |
 | Left, Right       | Horizontal (2)       | NSLayoutXAxisAnchor |
-
 | Width, Height     | Dimension            | NSLayoutDimension   |
+
 - `NSLayoutAnchor`는 다른 앵커/상수에 따라 `NSLayoutConstraints`를 생성하는 메서드를 정의한다
   - `<REL>`이 equal, less than equal, greater than or equal인 경우
   - `anchor1 <REL> anchor2` / `anchor1 <REL> anchor2 + constant`와 같은 제약조건을 어떻게 생성할지 메서드로 정의한다
