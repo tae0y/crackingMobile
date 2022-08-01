@@ -30,6 +30,7 @@
   - start/leading : 글자가 시작하는 방향 (이를테면 아랍어에서는 오른쪽이고, 한글에서는 왼쪽)
   - end/trailing
   - ios에서는 특별한 경우가 아니라면 left/right보다 leading/trailing을 권장하고 있음
+
 | Android  | iOS      |
 | -------- | -------- |
 | top      | top      |
