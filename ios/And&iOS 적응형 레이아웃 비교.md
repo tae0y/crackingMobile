@@ -98,13 +98,15 @@
 - 앵커 조합은 '동일한 유형'끼리만 가능하다
   - 수직은 수직끼리, 수평은 수평끼리
   - start/end와 left/right를 혼합할 수는 없다
-  - guideline 자체에 제약조건을 걸려면 다른 guideline으로 걸어야 한다
+  - guideline 자체에 제약조건을 걸려면 다른 guideline으로 걸어야 한다  
+
 | Anchors     | Type                 |
 | ----------- | -------------------- |
 | Baseline    | Vertical (Text only) |
 | Top, Bottom | Vertical             |
 | Start, End  | Horizontal (1)       |
 | Left, Right | Horizontal (2)       |
+  
 - 텍스트 기준선 맞추는 방법
   - ConstraintLayout은 baseline guideline으로
   - LinearLayout은 baselineAlinged
@@ -127,12 +129,14 @@
   - 서브 클래스는 자기자신을 제네릭 제약조건으로 사용한다
     - class ==NSLayoutXAxisAnchor== : NSLayoutAnchor\<==NSLayoutXAxisAnchor==\> {
   - 위와 같은 방식으로 프로그래밍 언어의 타입시스템을 활용한다 (swift, objective-c 동일)
+
 | Anchors           | Type                 | Class               |
 | ----------------- | -------------------- | ------------------- |
 | Baseline          | Vertical (Text only) | NSLayoutYAxisAnchor |
 | Top, Bottom       | Vertical             | NSLayoutYAxisAnchor |
 | Leading, Trailing | Horizontal (1)       | NSLayoutXAxisAnchor |
 | Left, Right       | Horizontal (2)       | NSLayoutXAxisAnchor |
+
 | Width, Height     | Dimension            | NSLayoutDimension   |
 - `NSLayoutAnchor`는 다른 앵커/상수에 따라 `NSLayoutConstraints`를 생성하는 메서드를 정의한다
   - `<REL>`이 equal, less than equal, greater than or equal인 경우
