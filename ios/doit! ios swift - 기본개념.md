@@ -639,11 +639,27 @@ name = "tae0"
   - 테이블뷰 컨트롤
 
 - **세그웨이 옵션**
-  - show : swift 2.X의 push와 유사, 새로운 뷰 컨트롤러가 스택에 푸시하면서 활성화된다, 이전 화면으로 돌아갈 때는 새로운 뷰 컨트롤러가 팝되면서 밑에 있던 뷰 컨트롤러가 활성화된다.
+  - show : swift 2.X의 push와 유사, 새로운 뷰 컨트롤러가 스택에 푸시하면서 활성화된다, 이전 화면으로 돌아갈 때는 뷰 컨트롤러가 팝되면서 밑에 있던 뷰 컨트롤러가 활성화된다.
   - show detail : show와 비슷하지만 push가 아니라 replace된다. 현재 뷰 컨트롤러 스택의 최상단 뷰를 교체한다.
   - present modally : 새로운 뷰 컨트롤러를 보여 주는 스타일과 화면 전환 스타일을 결정하여 뷰를 모달 형태로 보여준다.
   - present as popover : 현재 보이는 뷰 컨트롤러 위에 앵커를 가진 팝업 형태로 콘텐츠 뷰를 표시한다.
   - custom : 개발자가 임의로 지정한 동작을 수행한다.
+
+
+
+## Navigation, Tab, TableView, Segue
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -785,6 +801,80 @@ name = "tae0"
 
 
 ### 터치액션 컨트롤 (GestureRecognizer)
+
+
+
+## 개인프로젝트 - 냉장고파먹기
+
+- **개발할때 어려웠던 점**
+  - :man_dancing:**데이터 파싱/디코딩/저장** : 레시피 목록 CSV 파일을 파싱해서 JSON으로 변환, 다시 Realm 객체에 담아 저장하는 과정. 
+    - 공공데이터 포털에서 내려받은 CSV 파일은 UTF-8, UNICODE로 디코딩되지 않아 계속해서 오류가 났다. 데이터가 너무 커서 로컬에서는 애플 스프레드로 열리지도 않았다. 구글 드라이브에 올려 스프레드 시트에서 CSV로 다시 변환해서 내려받은 후 UTF-8로 디코딩해 사용했다.
+    - 파일을 프로젝트 폴더에 포함시켰는데, `./fileName.csv` 같은 상대경로로 참조할 수 없었다. 뷰 컨트롤러가 실제로 어떤 디렉토리에서 작업 중인지 모르겠다.
+  - :runner:**데이터 저장후 뷰에 반영** : 사용자가 입력한 요리재료를 Realm 데이터베이스에 저장까지는 성공했지만, 변경을 감지해 화면에 다시 불러오는 부분은 구현하지 못했다. 
+    - 등록 후 네비게이션 컨트롤러와 세그웨이를 타고 목록 화면으로 돌아가는 시점에서 화면을 다시 불러오는 방법, 또는 목록화면에서 Realm 데이터베이스 변경사항을 자동으로 감지해서 다시 불러오는 방법 두 가지가 있겠다.
+    - 더 적합한 방법을 고르라면 첫번째겠는데, 구현해보고 싶은 방법은 두번째이다. 탭/네비게이션바와 세그웨이가 뒤섞인 상태에서 뷰 생명주기가 어떻게 돌아가는지 공부할 기회가 될 것 같다.
+  - 알림 기능 어떻게 테스트하지?
+    - 실기기, 맥에 구동
+    - 애플 개발자 등록
+  - 검색 기능 어떻게 구현할까?
+  - 시금치 가격정보
+  - 도서 바코드정보
+
+
+
+- [iOS ) NavigationBar (tistory.com)](https://zeddios.tistory.com/574)
+- [Segue 파헤치기 (jcsoohwancho.github.io)](https://jcsoohwancho.github.io/2019-07-28-Segue-파헤치기/)
+  - [what is segue selector - Google 검색](https://www.google.com/search?q=what+is+segue+selector&sxsrf=ALiCzsamqZsxjobGSr9coBHX3rJzesgN8A%3A1661053107691&ei=s6gBY-_tKZOjoASM2q-IDQ&ved=0ahUKEwivk7-Dgdf5AhWTEYgKHQztC9EQ4dUDCA4&uact=5&oq=what+is+segue+selector&gs_lcp=Cgdnd3Mtd2l6EAM6BwgAEEcQsANKBAhBGABKBAhGGABQhwRY1Q5gqBBoAXABeACAAY4BiAH1B5IBAzAuOJgBAKABAcgBCsABAQ&sclient=gws-wiz)
+- table view vs table view controller
+  - [objective c - UITableViewController vs TableView - Stack Overflow](https://stackoverflow.com/questions/9694185/uitableviewcontroller-vs-tableview)
+  - [iOS) 테이블뷰 (UITableView) 기초 - (2) :: 운노스의 iOS (tistory.com)](https://woonhyeong.tistory.com/6)
+- [[iOS/Swift] Toast Message 만들기 (tistory.com)](https://royhelen.tistory.com/46)
+- Realm / view
+  - [iOS ) View Controller의 생명주기(Life-Cycle) (tistory.com)](https://zeddios.tistory.com/43)
+    - viewWillAppear() 리로드할 수 있음
+    - viewDidLoad() 리로드 못함
+  - [Swift(스위프트) - Realm 설치 및 연동 예제 (tistory.com)](https://value-of-life.tistory.com/154?category=888433)
+  - [[Swift/Realm] realm 데이터 모델 @persisted의 의미, property wrapper (velog.io)](https://velog.io/@luboolu/SwiftRealm-realm-데이터-모델-persisted의-의미-property-wrapper)
+  - [[Swift] Realm의 특징과 사용법 (velog.io)](https://velog.io/@dlskawns96/Swift-Realm의-특징과-사용법)
+  - [ios - RLMException, Migration is required for object type - Stack Overflow](https://stackoverflow.com/questions/33363508/rlmexception-migration-is-required-for-object-type)
+  - [성능 향상과 메모리 사용량 최소화에 최적화된 Realm API를 소개합니다.](https://academy.realm.io/kr/posts/realm-api-optimized-for-performance-and-low-memory-use/)
+  - [iOS Swift 라이브러리 Realm 사용하기 (tistory.com)](https://gonslab.tistory.com/16)
+  - [ios - RealmSwift: Convert Results to Swift Array - Stack Overflow](https://stackoverflow.com/questions/31100011/realmswift-convert-results-to-swift-array)
+  - [RxSwift Realm(3) - realm변경 감지 (Observable.changeset) (tistory.com)](https://myseong.tistory.com/15)
+  - [Realm swift struct 타입, List타입 수정 하는법 :: Dumb-veloper (tistory.com)](https://dev-in-gym.tistory.com/134)
+- 알림
+  - [[TIL] 2021.02.05 (velog.io)](https://velog.io/@sainkr/TIL-2021.02.05)
+
+- ios swift URLSession : [[iOS/Swift] HTTP/HTTPS 통신의 기본, URLSession (tistory.com)](https://tngusmiso.tistory.com/50)
+- 스플래시 [[IOS]스플래시 이미지 적용#02 - 커스텀 뷰 컨트롤러를 사용하여 애니메이션까지! - StakTree](https://staktree.github.io/ios/IOS-splash-02/)
+- CSV to JSON
+  - [Quick CSV to JSON in Swift (github.com)](https://gist.github.com/algal/ceb17773bbc01e9b6bb1)
+  - [Easily read a CSV in Swift (for Newbies) | by Jason Pettett | Medium](https://medium.com/@deadbeef404/reading-a-csv-in-swift-7be7a20220c6)
+- 로딩중
+  - [swift 로딩 중 표시하기 - Better me than yesterday (tistory.com)](https://42kchoi.tistory.com/376)
+  - [[iOS - swift] 로딩화면 구현 방법, UIActivityIndicatorView (tistory.com)](https://ios-development.tistory.com/985)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
