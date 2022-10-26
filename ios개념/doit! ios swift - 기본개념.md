@@ -649,37 +649,7 @@ name = "tae0"
 
 ## Navigation, Tab, TableView, Segue
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(작성 중)
 
 
 
@@ -802,6 +772,8 @@ name = "tae0"
 
 ### 터치액션 컨트롤 (GestureRecognizer)
 
+(작성 중)
+
 
 
 ## 개인프로젝트 - 냉장고파먹기
@@ -821,6 +793,8 @@ name = "tae0"
   - 도서 바코드정보
 
 
+
+## 참고한 자료
 
 - [iOS ) NavigationBar (tistory.com)](https://zeddios.tistory.com/574)
 - [Segue 파헤치기 (jcsoohwancho.github.io)](https://jcsoohwancho.github.io/2019-07-28-Segue-파헤치기/)
@@ -853,32 +827,6 @@ name = "tae0"
 - 로딩중
   - [swift 로딩 중 표시하기 - Better me than yesterday (tistory.com)](https://42kchoi.tistory.com/376)
   - [[iOS - swift] 로딩화면 구현 방법, UIActivityIndicatorView (tistory.com)](https://ios-development.tistory.com/985)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
